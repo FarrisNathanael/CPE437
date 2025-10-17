@@ -1,0 +1,38 @@
+:root{
+    /* Colors */
+    --white: #fff;
+    /* --body-background-color: rgb(220, 240, 220); */
+    --body-background-color: #eeffff;
+    --green-dark: #408c40FF;
+    --div2-text-color: darkorange;
+    --div-background-color: lightblue;
+    --div-border-color: darkblue;
+    --header-background-color: lightblue;
+
+    /* Typography */
+    --font-family-base: "Times New Roman", serif;
+    --font-family-h2: "Arial", serif;
+    --font-family-p: "Garamond", serif;
+    --font-family-div2: "Brush Script MT", serif;
+    --font-size-base: 16px;
+    --font-size-small: 0.875rem; /* 14px */
+    --font-size-large: 1.25rem; /* 20px */
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+
+    /* Spacing */
+    --line-height-small: 1.5;
+    --spacing-unit: 8px;
+    --spacing-xs: calc(var(--spacing-unit) * 0.5); /* 4px */
+    --spacing-sm: var(--spacing-unit); /* 8px */
+    --spacing-md: calc(var(--spacing-unit) * 2); /* 16px */
+    --spacing-lg: calc(var(--spacing-unit) * 3); /* 24px */
+
+    /* Alignment */
+
+    /* Borders */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+
+
+}

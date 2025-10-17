@@ -1,0 +1,39 @@
+@import url('./token.css');
+
+.myDiv {
+    border: var(--border-radius-sm) outset var(--div-border-color);
+    background-color: var(--div-background-color);
+    text-align: center;
+}
+
+body {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    font-size: var(--font-size-base);
+    /* background-color: rgb(220, 240, 220); */
+    background-color: var(--body-background-color);
+}
+
+h1 {
+    font-family: var(--font-family-body);
+    background-color: var(--header-background-color);
+    word-spacing: var(--spacing-sm);
+    text-align: center;
+}
+h2 {
+    font-family: var(--font-family-body);
+    background-color: var(--header-background-base);
+    word-spacing: var(--spacing-xs);
+}
+
+p{
+    font-family: var(--font-family-p);
+    text-align: center;
+}
+
+.myDiv2{
+    font-family: var(--font-family-div2);
+    font-weight: var(--font-weight-bold);
+    color: var(--div2-text-color);
+    text-align: center;
+}
