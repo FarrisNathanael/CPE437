@@ -37,3 +37,11 @@ p{
     color: var(--div2-text-color);
     text-align: center;
 }
+
+svg.icon {
+    display: inline;
+    height: 2em;
+    width: 2em;
+    vertical-align: middle;
+    fill: currentColor;
+}
