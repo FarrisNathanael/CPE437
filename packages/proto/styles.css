@@ -15,11 +15,15 @@ body {
 }
 
 h1 {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
     font-family: var(--font-family-body);
     background-color: var(--header-background-color);
     word-spacing: var(--spacing-sm);
-    text-align: center;
+    text-align: left;
 }
+
 h2 {
     font-family: var(--font-family-body);
     background-color: var(--header-background-base);
@@ -44,4 +48,56 @@ svg.icon {
     width: 2em;
     vertical-align: middle;
     fill: currentColor;
+}
+
+h1 .logo {
+    position: static;    /* overrides styles.css */
+    left: auto;
+    top: auto;
+    width: auto;         /* don’t force width from old CSS */
+    display: inline-flex;
+    align-items: center;
+}
+h1 img {
+    display: block;
+    height: 50px;
+    width: 50px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: var(--border-radius-sm) outset var(--border-color);
+}
+.user {
+    display: inline-flex;
+    align-items: center;
+    margin-left: auto;   /* ensures it hugs the right, even if justify changes */
+}
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.page{
+    display: grid;
+    grid-template-columns: [start] 1fr 1fr 1fr [end];
+}
+.page > h1 {
+    grid-column: 1 / -1;            /* span all grid columns */
+    grid-row: 1;                    /* sit in the first row */
+    position: sticky;
+    top: 0;                         /* stick to viewport top */
+    z-index: 100;                   /* stay above content */
+
+    /* Nice header styling + your flex layout */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    padding: .75rem 1rem;
+    background: var(--header-background-color); /* solid bg so content doesn't show through */
 }

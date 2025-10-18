@@ -8,59 +8,79 @@
     <link rel="stylesheet" href="styles.css"/>
     <title>Board Game Plane | Rules</title>
 </head>
-<body>
-<h1>Create</h1>
-<span style="margin-left: 48%;">
-    <svg class = "icon">
-        <use xlink:href ="icons/navigation.svg#icon-home"></use>
-    </svg>
-    <a href="index.html">Home</a>
- </span>
-<h2>
-    <svg class = "icon">
-        <use xlink:href ="icons/gamestuff.svg#icon-board-game"></use>
-    </svg>
-    Board Type</h2>
-<label for="myDropdown">Board Game:</label>
-<select name="myDropdown" id="myDropdown">
-    <option value="hexgrid">Hex Grid</option>
-    <option value="squaregrid">Square Grid</option>
-    <option value="Map Board">Map Board</option>
-    <option value="noboard">No Board</option>
-</select>
-<img src="https://www.prawndesigns.com/hex-board-style-1-options/Settlers3E3-4Hex.png" alt="Hex Grid" width="200" height="200">
-<!--<ul>-->
-<!--    <li>Hex Grid</li>-->
-<!--    <li>Square Grid</li>-->
-<!--    <li>Map Board</li>-->
-<!--    <li>No Board</li>-->
-<!--</ul>-->
-<h2>
-    <svg class = "icon">
-        <use xlink:href ="icons/gamestuff.svg#icon-rules"></use>
-    </svg>
-    Rule Set</h2>
-<label for="ruleset"></label>
-<textarea name="Rule Set" id="ruleset" rows="5" cols="40" placeholder="Enter rule description ..."></textarea>
+<body class = "page">
+    <h1>
+      <span class="brand">
+        <a href="index.html" class="logo">
+          <img src="assets/Website_Logo.png"
+               alt="Two cards with colors with a die between them">
+        </a>
+        <span class="site-title">Board Game Plane</span>
+      </span>
 
-<h2>
-    <svg class = "icon">
-        <use xlink:href ="icons/gamestuff.svg#icon-cards"></use>
-    </svg>
-    Cards</h2>
-<ul>
-    <li>Card1</li>
-    <li>Card2</li>
-</ul>
-<h2>
-    <svg class = "icon">
-        <use xlink:href ="icons/gamestuff.svg#icon-token"></use>
-    </svg>
-    Tokens</h2>
-<ul>
-    <li>Token1</li>
-    <li>Token2</li>
-</ul>
-
+        <a href="OthersWorks.html" class="user">
+            <img src="assets/Website_User.png"
+                 alt="User avatar">
+        </a>
+    </h1>
+    <span style="margin-left: 48%;">
+        <svg class = "icon">
+            <use xlink:href ="icons/navigation.svg#icon-home"></use>
+        </svg>
+        <a href="index.html">Home</a>
+     </span>
+    <div class="container">
+        <h2>
+            <svg class = "icon">
+                <use xlink:href ="icons/gamestuff.svg#icon-board-game"></use>
+            </svg>
+            Board Type
+        </h2>
+        <label for="myDropdown">Board Game:</label>
+        <select name="myDropdown" id="myDropdown">
+            <option value="hexgrid">Hex Grid</option>
+            <option value="squaregrid">Square Grid</option>
+            <option value="Map Board">Map Board</option>
+            <option value="noboard">No Board</option>
+        </select>
+        <img src="https://www.prawndesigns.com/hex-board-style-1-options/Settlers3E3-4Hex.png" alt="Hex Grid" width="200" height="200">
+    </div>
+        <!--<ul>-->
+    <!--    <li>Hex Grid</li>-->
+    <!--    <li>Square Grid</li>-->
+    <!--    <li>Map Board</li>-->
+    <!--    <li>No Board</li>-->
+    <!--</ul>-->
+    <div class="container">
+        <h2>
+            <svg class = "icon">
+                <use xlink:href ="icons/gamestuff.svg#icon-rules"></use>
+            </svg>
+            Rule Set</h2>
+        <label for="ruleset"></label>
+        <textarea name="Rule Set" id="ruleset" rows="5" cols="40" placeholder="Enter rule description ..."></textarea>
+    </div>
+    <div class="container">
+        <h2>
+            <svg class = "icon">
+                <use xlink:href ="icons/gamestuff.svg#icon-cards"></use>
+            </svg>
+            Cards</h2>
+        <ul>
+            <li>Card1</li>
+            <li>Card2</li>
+        </ul>
+    </div>
+    <div class="container">
+        <h2>
+            <svg class = "icon">
+                <use xlink:href ="icons/gamestuff.svg#icon-token"></use>
+            </svg>
+            Tokens</h2>
+        <ul>
+            <li>Token1</li>
+            <li>Token2</li>
+        </ul>
+    </div>
 </body>
 </html>
