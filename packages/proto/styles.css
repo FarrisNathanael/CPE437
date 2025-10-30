@@ -1,5 +1,6 @@
 @import url('./token.css');
 
+
 .myDiv {
     border: var(--border-radius-sm) outset var(--div-border-color);
     background-color: var(--div-background-color);
@@ -51,10 +52,10 @@ svg.icon {
 }
 
 h1 .logo {
-    position: static;    /* overrides styles.css */
+    position: static;
     left: auto;
     top: auto;
-    width: auto;         /* don’t force width from old CSS */
+    width: auto;
     display: inline-flex;
     align-items: center;
 }
@@ -82,11 +83,27 @@ h1 img {
     gap: .5rem;
 }
 
+@media screen and
+(max-width: 50rem) {
+    .page {
+        --page-grids: 4;
+    }
+}
+
+
 .page{
+    --page-grids: 12;
+    @media (max-width: 1100px) { :root { --page-grids: 8;  } }  /* 12 → 8 */
+    @media (max-width: 760px)  { :root { --page-grids: 4;  } }  /* 8  → 4 */
+    --col-min: 64px;
     display: grid;
-    grid-template-columns: [start] 1fr 1fr 1fr [end];
+    grid-template-columns: repeat(var(--page-grids), minmax(var(--col-min), 1fr));
+    gap: var(--spacing-sm);
+    grid-auto-flow: row;
+    grid-auto-rows: auto;
 }
 .page > h1 {
+    grid-area: header;
     grid-column: 1 / -1;            /* span all grid columns */
     grid-row: 1;                    /* sit in the first row */
     position: sticky;
@@ -100,4 +117,32 @@ h1 img {
     gap: .75rem;
     padding: .75rem 1rem;
     background: var(--header-background-color); /* solid bg so content doesn't show through */
+
 }
+.page > .navbar{
+    grid-row: 2 / 3;
+    grid-column: 1 / -1;
+}
+
+.page > .container1{
+    grid-row: 3 / 4;
+    /*span min(6, var(--page-grids)) / -1;*/
+    grid-column:span 6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: var(--border-radius-sm) outset var(--border-color);
+
+}
+
+.page > .container2{
+    grid-row: 4 / 5;
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: var(--border-radius-sm) outset var(--border-color);
+}
+
