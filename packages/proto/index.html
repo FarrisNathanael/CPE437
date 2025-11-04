@@ -10,55 +10,84 @@
             crossorigin />
     <link rel="stylesheet" href="token.css"/>
     <link rel="stylesheet" href="styles.css"/>
+    <link rel="javascript" href="functions.js"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Board Game Plane</title>
 </head>
 
-<body>
+<body class = "page">
+<script>
+    document.body.addEventListener("dark-mode:toggle", function (event) {
+        const isOn = !!(event.detail && event.detail.checked);
+        event.currentTarget.classList.toggle('dark-mode', isOn);
+
+    });
+    function toggleDarkMode(target, checked) {
+        console.log("[relay] dispatching dark-mode:toggle", { checked });
+        const customEvent = new CustomEvent("dark-mode:toggle", {
+            bubbles: true,
+            detail: { checked }
+        });
+        target.dispatchEvent(customEvent);
+    }
+
+</script>
 <h1>
   <span class="brand">
     <a href="index.html" class="logo">
       <img src="assets/Website_Logo.png"
            alt="Two cards with colors with a die between them">
     </a>
-    <span class="site-title">Board Game Plane</span>
+      <span class="site-title">Board Game Plane</span>
   </span>
-<!--    <label>-->
-<!--        <input type="checkbox" autocomplete="off" />-->
-<!--        Dark mode-->
-<!--    </label>-->
+    <label class="dark-mode-box"
+           onchange="event.stopPropagation(); toggleDarkMode(this, event.target.checked)"
+    >
+        <input type="checkbox" autocomplete="off"/>
+        Dark mode
+    </label>
 
     <a href="OthersWorks.html" class="user">
         <img src="assets/Website_User.png"
              alt="User avatar">
     </a>
 </h1>
-<span style="margin-left: 5em;">
-    <svg class = "icon">
-        <use xlink:href ="icons/navigation.svg#icon-create"></use>
-    </svg>
-    <a href="Create.html">Create</a>
- </span>
-<span style="margin-left: 35em;">
-    <svg class = "icon">
-        <use xlink:href ="icons/navigation.svg#icon-saves"></use>
-    </svg>
-    <a href="Saves.html">Saves</a>
- </span>
-<span style="margin-left: 30em;">
-    <svg class = "icon">
-        <use xlink:href ="icons/navigation.svg#icon-others-work"></use>
-    </svg>
-    <a href="OthersWorks.html">Others Works</a>
- </span>
+<!--input.addEventHandler('change', function(e) {-->
+
+<!--}-->
+<div class="navbar">
+    <span style="margin-left: 5em;">
+        <svg class = "icon">
+            <use xlink:href ="icons/navigation.svg#icon-create"></use>
+        </svg>
+        <a href="Create.html">Create</a>
+     </span>
+    <span style="margin-left: 35em;">
+        <svg class = "icon">
+            <use xlink:href ="icons/navigation.svg#icon-saves"></use>
+        </svg>
+        <a href="Saves.html">Saves</a>
+     </span>
+    <span style="margin-left: 30em;">
+        <svg class = "icon">
+            <use xlink:href ="icons/navigation.svg#icon-others-work"></use>
+        </svg>
+        <a href="OthersWorks.html">Others Works</a>
+     </span>
+</div>
 <div class="myDiv2"> Imagine. Create. Play. </div>
 <div class="myDiv">
     <h2>Looking to build a new game?</h2>
     <p>Look no further! we have the perfect platform for all your creative needs, right at your fingertips.</p>
 </div>
-<img src="https://t3.ftcdn.net/jpg/05/00/10/16/360_F_500101658_Uc546WfqJtaYXOVYZnsetAetYlrvU7Vl.jpg" alt="Board game stuff" width="1425" height="800" style="margin-left: auto; margin-right: auto;">
-
+<div class="home-image">
+    <picture>
+        <source media="(width < 800px)" srcset="https://t3.ftcdn.net/jpg/05/00/10/16/360_F_500101658_Uc546WfqJtaYXOVYZnsetAetYlrvU7Vl.jpg" />
+        <img src="https://t3.ftcdn.net/jpg/05/00/10/16/360_F_500101658_Uc546WfqJtaYXOVYZnsetAetYlrvU7Vl.jpg" alt="Board game stuff" />
+    </picture>
+<!--    <img src="https://t3.ftcdn.net/jpg/05/00/10/16/360_F_500101658_Uc546WfqJtaYXOVYZnsetAetYlrvU7Vl.jpg" alt="Board game stuff" width="1425" height="800" style="margin-left: auto; margin-right: auto;">-->
+</div>
 </body>
 </html>

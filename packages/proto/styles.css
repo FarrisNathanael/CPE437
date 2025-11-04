@@ -1,7 +1,18 @@
 @import url('./token.css');
 
+@media (max-width: 1100px) { :root { --page-grids: 8;  } }  /* 12 → 8 */
+@media (max-width: 760px)  { :root { --page-grids: 4;  } }  /* 8  → 4 */
+@media screen and
+(max-width: 30rem) {
+    .page {
+        --page-grids: 2;
+    }
+}
 
 .myDiv {
+    grid-row: 4 / 5;
+    grid-column: 1 / -1;
+    color: var(--text-color);
     border: var(--border-radius-sm) outset var(--div-border-color);
     background-color: var(--div-background-color);
     text-align: center;
@@ -19,6 +30,7 @@ h1 {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
+    color: var(--text-color);
     font-family: var(--font-family-body);
     background-color: var(--header-background-color);
     word-spacing: var(--spacing-sm);
@@ -37,6 +49,9 @@ p{
 }
 
 .myDiv2{
+    grid-row: 3;
+    place-items: center;
+    place-self: center;
     font-family: var(--font-family-div2);
     font-weight: var(--font-weight-bold);
     color: var(--div2-text-color);
@@ -59,11 +74,29 @@ h1 .logo {
     display: inline-flex;
     align-items: center;
 }
+
+h1 .dark-mode-box{
+    text-size-adjust: 50%;
+    display: flex;
+    flex-direction: row;
+    horiz-align: right;
+}
+
 h1 img {
     display: block;
     height: 50px;
     width: 50px;
 }
+
+.home-image{
+    grid-row: 5 / 6;
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    max-width: 100%; /* Ensures image doesn't exceed its container's width */
+    height: auto;    /* Maintains aspect ratio by adjusting height automatically */
+}
+
 
 .container{
     display: flex;
@@ -83,18 +116,9 @@ h1 img {
     gap: .5rem;
 }
 
-@media screen and
-(max-width: 50rem) {
-    .page {
-        --page-grids: 4;
-    }
-}
-
-
 .page{
     --page-grids: 12;
-    @media (max-width: 1100px) { :root { --page-grids: 8;  } }  /* 12 → 8 */
-    @media (max-width: 760px)  { :root { --page-grids: 4;  } }  /* 8  → 4 */
+
     --col-min: 64px;
     display: grid;
     grid-template-columns: repeat(var(--page-grids), minmax(var(--col-min), 1fr));
@@ -112,6 +136,7 @@ h1 img {
 
     /* Nice header styling + your flex layout */
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: .75rem;
@@ -122,9 +147,11 @@ h1 img {
 .page > .navbar{
     grid-row: 2 / 3;
     grid-column: 1 / -1;
+    color: var(--text-color);
 }
 
 .page > .container1{
+    color: var(--text-color);
     grid-row: 3 / 4;
     /*span min(6, var(--page-grids)) / -1;*/
     grid-column:span 6;
@@ -132,17 +159,18 @@ h1 img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: var(--border-radius-sm) outset var(--border-color);
+    border: var(--border-radius-sm) outset var(--div-background-color);
 
 }
 
 .page > .container2{
+    color: var(--text-color);
     grid-row: 4 / 5;
     grid-column: span 4;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: var(--border-radius-sm) outset var(--border-color);
+    border: var(--border-radius-sm) outset var(--div-background-color);
 }
 
