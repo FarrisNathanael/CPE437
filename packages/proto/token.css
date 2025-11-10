@@ -9,6 +9,9 @@
     --div-border-color: darkblue;
     --header-background-color: lightblue;
     --border-color: lightblue;
+    --link-bg-active: #004a86;
+    --link-text-hover: #f5f5f5;
+    --link-bg-hover: #005ea6;
 
     /* Typography */
     --font-family-base: "Times New Roman", serif;

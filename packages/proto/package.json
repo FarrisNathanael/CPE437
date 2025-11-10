@@ -2,14 +2,20 @@
   "name": "proto",
   "version": "1.0.0",
   "description": "",
-  "main": "public/index.html",
+  "main": "index.html",
   "scripts": {
-	  "start": "http-server",
+    "start": "http-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "http-server": "^14.1.1"
+    "@calpoly/mustang": "^1.0.15",
+    "http-server": "^14.1.1",
+    "lit": "^3.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2"
   }
 }

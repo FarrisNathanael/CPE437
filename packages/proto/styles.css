@@ -9,15 +9,6 @@
     }
 }
 
-.myDiv {
-    grid-row: 4 / 5;
-    grid-column: 1 / -1;
-    color: var(--text-color);
-    border: var(--border-radius-sm) outset var(--div-border-color);
-    background-color: var(--div-background-color);
-    text-align: center;
-}
-
 body {
     font-family: var(--font-family-base);
     font-size: var(--font-size-base);
@@ -26,16 +17,16 @@ body {
     background-color: var(--body-background-color);
 }
 
-h1 {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    color: var(--text-color);
-    font-family: var(--font-family-body);
-    background-color: var(--header-background-color);
-    word-spacing: var(--spacing-sm);
-    text-align: left;
-}
+/*h1 {*/
+/*    display: flex;*/
+/*    align-items: baseline;*/
+/*    justify-content: flex-start;*/
+/*    color: var(--text-color);*/
+/*    font-family: var(--font-family-body);*/
+/*    background-color: var(--header-background-color);*/
+/*    word-spacing: var(--spacing-sm);*/
+/*    text-align: left;*/
+/*}*/
 
 h2 {
     font-family: var(--font-family-body);
@@ -47,15 +38,26 @@ p{
     font-family: var(--font-family-p);
     text-align: center;
 }
+.myDiv {
+    grid-row: 4 / 5;
+    grid-column: 1 / -1;
+    color: var(--text-color);
+    border: var(--border-radius-sm) outset var(--div-border-color);
+    background-color: var(--div-background-color);
+    text-align: center;
+}
 
 .myDiv2{
     grid-row: 3;
+    grid-column: 1 / -1;                  /* span full width */
+    display: grid;                        /* so place-items works */
     place-items: center;
-    place-self: center;
-    font-family: var(--font-family-div2);
-    font-weight: var(--font-weight-bold);
-    color: var(--div2-text-color);
     text-align: center;
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-div2);
+    color: var(--div2-text-color);
+    /* optional: responsive size */
+    font-size: clamp(1.25rem, 2vw + .5rem, 2.5rem);
 }
 
 svg.icon {
@@ -64,6 +66,24 @@ svg.icon {
     width: 2em;
     vertical-align: middle;
     fill: currentColor;
+}
+
+h1 {
+    text-align: left;
+    position: sticky;
+    top: 0;                         /* stick to viewport top */
+    z-index: 100;                   /* stay above content */
+
+    /* Nice header styling + your flex layout */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    padding: .75rem 1rem;
+    background-color: var(--header-background-color); /* solid bg so content doesn't show through */
+    color: var(--text-color);
+    font-family: var(--font-family-body);
 }
 
 h1 .logo {
@@ -76,10 +96,12 @@ h1 .logo {
 }
 
 h1 .dark-mode-box{
-    text-size-adjust: 50%;
-    display: flex;
-    flex-direction: row;
-    horiz-align: right;
+    margin-left: auto;                    /* moves it to the right edge */
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 h1 img {
@@ -89,14 +111,21 @@ h1 img {
 }
 
 .home-image{
-    grid-row: 5 / 6;
-    grid-column: 1 / -1;
-    display: flex;
-    align-items: center;
-    max-width: 100%; /* Ensures image doesn't exceed its container's width */
-    height: auto;    /* Maintains aspect ratio by adjusting height automatically */
+    place-items: center;
+    width: 100%;
 }
 
+.home-image picture{
+    width: min(1200px, 100%);             /* keeps a nice max width */
+}
+
+.home-image img{
+    display: block;
+    width: 100%;                          /* fill the container width */
+    height: auto;                         /* keep aspect ratio */
+    object-fit: cover;                    /* good for large/wide images */
+    margin: 0 auto;                       /* centered */
+}
 
 .container{
     display: flex;
@@ -105,7 +134,9 @@ h1 img {
     align-items: center;
     border: var(--border-radius-sm) outset var(--border-color);
 }
+
 .user {
+    margin-left: 0 !important;
     display: inline-flex;
     align-items: center;
     margin-left: auto;   /* ensures it hugs the right, even if justify changes */
@@ -126,29 +157,67 @@ h1 img {
     grid-auto-flow: row;
     grid-auto-rows: auto;
 }
+
+
 .page > h1 {
     grid-area: header;
     grid-column: 1 / -1;            /* span all grid columns */
     grid-row: 1;                    /* sit in the first row */
-    position: sticky;
-    top: 0;                         /* stick to viewport top */
-    z-index: 100;                   /* stay above content */
-
-    /* Nice header styling + your flex layout */
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: .75rem;
-    padding: .75rem 1rem;
-    background: var(--header-background-color); /* solid bg so content doesn't show through */
-
 }
+
 .page > .navbar{
     grid-row: 2 / 3;
     grid-column: 1 / -1;
     color: var(--text-color);
 }
+/*.navbar{*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    horiz-align: center;*/
+/*    color: var(--text-color);*/
+/*    !*padding: 1em 2em;*!*/
+/*}*/
+.navbar-single {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .navbar {
+        /* Center the whole bar on the page */
+        max-width: 1800px;   /* adjust to taste */
+        width: 100%;
+        margin: 0 auto;
+
+        display: flex;
+        justify-content: space-between;  /* three slots across */
+        align-items: center;
+        color: var(--text-color);
+    }
+
+.navbar a {
+    display: inline-block;
+    padding: 0.4em 1em;
+    margin: 0 0.5em;
+    color: var(--text-color);            /* fallback: white text */
+    background-color: var(--header-background-color); /* fallback: blue box */
+    text-decoration: none;
+    border-radius: 10px;                            /* soft corners */
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+    background-color: var(--link-bg-hover);
+    color: var(--link-text-hover);
+    transform: scale(1.05);
+}
+
+.navbar a:active {
+    background-color: var(--link-bg-active);
+}
+
 
 .page > .container1{
     color: var(--text-color);
@@ -160,7 +229,7 @@ h1 img {
     justify-content: center;
     align-items: center;
     border: var(--border-radius-sm) outset var(--div-background-color);
-
+    padding: var(--spacing-sm);
 }
 
 .page > .container2{
