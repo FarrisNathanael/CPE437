@@ -10,17 +10,19 @@
 </head>
 
 <body>
+
+
     <h1>
       <span class="brand">
         <a href="index.html" class="logo">
-          <img src="assets/Website_Logo.png"
+          <img src="public/assets/Website_Logo.png"
                alt="Two cards with colors with a die between them">
         </a>
         <span class="site-title">Board Game Plane</span>
       </span>
 
         <a href="OthersWorks.html" class="user">
-            <img src="assets/Website_User.png"
+            <img src="public/assets/Website_User.png"
                  alt="User avatar">
         </a>
     </h1>
@@ -33,12 +35,48 @@
          </a>
     </div>
 <h2>Saves</h2>
-<ul>
-    <li><span> <a href="Game.html"> Save1</a></span></li>
-    <li><span> <a href="Game.html"> Save2</a></span></li>
-    <li><span> <a href="Game.html"> Save3</a></span></li>
-    <li><span> <a href="Game.html"> Save4</a></span></li>
-</ul>
+
+        <bgp-game
+                role="listitem"
+                cover-src ="/assets/Catan.png"
+                href = "Game.html"
+                player-min = "3"
+                player-max = "4"
+                duration = "45"
+                status = "In Progress"
+                last-played = "2025-10-31"
+        >
+                Catan
+                <span slot="subtitle">Family • Trade & Build</span>
+                <span slot="meta">Save 1</span>
+                <a slot="actions" class="btn" href="Game.html">Open</a>
+        </bgp-game>
+
+        <bgp-game
+                role="listitem"
+                cover-src="/assets/Wingspan.jpg"
+                href="OthersWorks.html"
+                player-min="1"
+                player-max="5"
+                duration="70"
+                status="Completed"
+                last-played="2025-09-20"
+        >
+            Wingspan
+            <span slot="subtitle">Card Collection</span>
+            <span slot="meta">Save 2</span>
+            <a slot="actions" class="btn" href="Game.html">Open</a>
+        </bgp-game>
+
+
+    <script type="module">
+        import { define } from "@calpoly/mustang"
+        import { GameElement } from "/src/games.ts"
+
+        define({
+            "bgp-game": GameElement
+        });
+    </script>
 
 </body>
 </html>
