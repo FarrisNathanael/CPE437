@@ -1,0 +1,21 @@
+[{
+  "name": "Wingspan",
+  "link": "/OthersWorks.html",
+  "coverSrc": "/assets/Wingspan.jpg",
+  "playersMin":"1",
+  "playersMax":"5",
+  "duration": "70",
+  "status": "Completed",
+  "lastEdited": "2025-09-20"
+},
+  {
+    "name": "Catan",
+    "link": "/Games.html",
+    "coverSrc": "/assets/Catan.png",
+    "playersMin":"3",
+    "playersMax":"4",
+    "duration": "45",
+    "status": "In Progress",
+    "lastEdited": "2025-10-31"
+  }
+  ]

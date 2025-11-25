@@ -36,45 +36,44 @@
     </div>
 <h2>Saves</h2>
 
-        <bgp-game
-                role="listitem"
-                cover-src ="/assets/Catan.png"
-                href = "Game.html"
-                player-min = "3"
-                player-max = "4"
-                duration = "45"
-                status = "In Progress"
-                last-played = "2025-10-31"
-        >
-                Catan
-                <span slot="subtitle">Family • Trade & Build</span>
-                <span slot="meta">Save 1</span>
-                <a slot="actions" class="btn" href="Game.html">Open</a>
-        </bgp-game>
+    <bgp-saves src="/data/Saves.json" ></bgp-saves>
 
-        <bgp-game
-                role="listitem"
-                cover-src="/assets/Wingspan.jpg"
-                href="OthersWorks.html"
-                player-min="1"
-                player-max="5"
-                duration="70"
-                status="Completed"
-                last-played="2025-09-20"
-        >
-            Wingspan
-            <span slot="subtitle">Card Collection</span>
-            <span slot="meta">Save 2</span>
-            <a slot="actions" class="btn" href="Game.html">Open</a>
-        </bgp-game>
 
+    <!--                role="listitem"-->
+    <!--                cover-src ="/assets/Catan.png"-->
+    <!--                href = "Game.html"-->
+    <!--                player-min = "3"-->
+    <!--                player-max = "4"-->
+    <!--                duration = "45"-->
+    <!--                status = "In Progress"-->
+    <!--                last-played = "2025-10-31"-->
+    <!--        >-->
+    <!--                Catan-->
+    <!--                <span slot="subtitle">Family • Trade & Build</span>-->
+    <!--                <span slot="meta">Save 1</span>-->
+
+    <!--        <bgp-game-->
+    <!--                role="listitem"-->
+    <!--                cover-src="/assets/Wingspan.jpg"-->
+    <!--                href="OthersWorks.html"-->
+    <!--                player-min="1"-->
+    <!--                player-max="5"-->
+    <!--                duration="70"-->
+    <!--                status="Completed"-->
+    <!--                last-played="2025-09-20"-->
+    <!--        >-->
+    <!--            Wingspan-->
+    <!--            <span slot="subtitle">Card Collection</span>-->
+    <!--            <span slot="meta">Save 2</span>-->
+    <!--        </bgp-game>-->
 
     <script type="module">
         import { define } from "@calpoly/mustang"
         import { GameElement } from "/src/games.ts"
-
+        import { SavesElement } from "/src/saves.ts";
         define({
-            "bgp-game": GameElement
+            "bgp-game": GameElement,
+            "bgp-saves": SavesElement
         });
     </script>
 
