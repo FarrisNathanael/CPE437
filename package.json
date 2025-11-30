@@ -15,9 +15,20 @@
   "bugs": {
     "url": "https://github.com/FarrisNathanael/CPE437/issues"
   },
-  "homepage": "https://github.com/FarrisNathanael/CPE437#readme"
-  ,
+  "homepage": "https://github.com/FarrisNathanael/CPE437#readme",
   "workspaces": [
-	  "packages/*"
-  ]
+    "packages/*"
+  ],
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.5",
+    "@types/node": "^24.10.1",
+    "cross-env": "^10.1.0",
+    "esbuild": "^0.27.0",
+    "esbuild-node-tsc": "^2.0.5",
+    "nodemon": "^3.1.11",
+    "typescript": "^5.9.3"
+  }
 }
