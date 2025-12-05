@@ -18,7 +18,19 @@
 </head>
 
 <body>
-<script>
+<mu-auth provides="bgp:auth">
+<script type="module">
+
+    import { define, Auth } from "@calpoly/mustang";
+    import { HeaderElement } from "/src/scripts/header.ts";
+
+    define({
+        "bgp-header": HeaderElement,
+        "mu-auth": Auth.Provider
+    });
+
+    HeaderElement.initializeOnce();
+
     document.body.addEventListener("dark-mode:toggle", function (event) {
         const isOn = !!(event.detail && event.detail.checked);
         event.currentTarget.classList.toggle('dark-mode', isOn);
@@ -53,7 +65,13 @@
         <img src="public/assets/Website_User.png"
              alt="User avatar">
     </a>
+    <label class="account">
+        <bgp-header>
+        </bgp-header>
+    </label>
 </h1>
+<!--    <bgp-header>-->
+<!--</bgp-header>-->
 <!--input.addEventHandler('change', function(e) {-->
 
 <!--}-->
@@ -89,5 +107,6 @@
     </picture>
 <!--    <img src="https://t3.ftcdn.net/jpg/05/00/10/16/360_F_500101658_Uc546WfqJtaYXOVYZnsetAetYlrvU7Vl.jpg" alt="Board game stuff" width="1425" height="800" style="margin-left: auto; margin-right: auto;">-->
 </div>
+</mu-auth>
 </body>
 </html>

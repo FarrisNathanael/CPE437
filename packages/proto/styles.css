@@ -104,6 +104,12 @@ h1 .dark-mode-box{
     font-weight: 500;
 }
 
+h1 .account{
+    display: inline-block;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+}
+
 h1 img {
     display: block;
     height: 50px;

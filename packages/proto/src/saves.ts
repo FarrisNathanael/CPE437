@@ -2,6 +2,8 @@
 
 import { html, LitElement } from "lit";
 import { property, state } from "lit/decorators.js";
+import { Auth, Observer} from "@calpoly/mustang";
+//import { HeaderElement } from "/src/scripts/header.ts";
 // import { GameElement} from "./games.ts";
 
 interface GameData{
@@ -22,14 +24,36 @@ export class SavesElement extends LitElement {
 
     @state() games: Array<GameData> = [];
 
+    // connectedCallback() {
+    //     super.connectedCallback();
+    //     if (this.src) this.hydrate(this.src);
+    // }
+
+
+    _authObserver = new Observer<Auth.Model>(this, "bgp:auth");
+    _user?: Auth.User;
+
     connectedCallback() {
         super.connectedCallback();
-        if (this.src) this.hydrate(this.src);
+        this._authObserver.observe((auth: Auth.Model) => {
+            this._user= auth.user;
+        });
     }
 
+    get authorization() {
+        return (
+            this._user?.authenticated && {
+                Authorization:
+                    `Bearer ${(this._user as Auth.AuthenticatedUser).token}`
+
+
+            }
+        );
+    }
 
     hydrate(src: string) {
-        fetch(src)
+        const headers = this.authorization ?? {};
+        fetch(src, {headers})
             .then(res => {
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 return res.json();
@@ -45,6 +69,7 @@ export class SavesElement extends LitElement {
                 }
             })
             .catch(err => console.error("hydrate failed:", err));
+
     }
 
 

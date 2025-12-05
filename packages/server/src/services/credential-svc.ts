@@ -1,8 +1,8 @@
 // src/services/credential-svc.ts
 import bcrypt from "bcryptjs";
 import { Schema, model } from "mongoose";
-// @ts-ignore
-import { Credential } from "../models/credential";
+
+import { Credential } from "../models/credentials";
 export default { create, verify };
 
 const credentialSchema = new Schema<Credential>(
