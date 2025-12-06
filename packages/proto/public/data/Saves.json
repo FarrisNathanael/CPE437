@@ -6,7 +6,8 @@
   "playersMax":"5",
   "duration": "70",
   "status": "Completed",
-  "lastEdited": "2025-09-20"
+  "lastEdited": "2025-09-20",
+  "username": "nate"
 },
   {
     "name": "Catan",
@@ -16,6 +17,7 @@
     "playersMax":"4",
     "duration": "45",
     "status": "In Progress",
-    "lastEdited": "2025-10-31"
+    "lastEdited": "2025-10-31",
+    "username": "nate"
   }
   ]

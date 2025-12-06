@@ -3,13 +3,19 @@ import express, { Request, Response } from "express";
 import { GameData } from "../models/saves";
 
 import Saves from "../services/saves-svc";
-
+import indexByUser from "../services/saves-svc"
 const router = express.Router();
 
-router.get("/", (_: Request, res: Response) => {
-    Saves.index()
+
+router.get("/", (req: Request, res: Response) => {
+    const username = (req as any).username;  // from authenticateUser
+
+    Saves.indexByUser(username)
         .then((list: GameData[]) => res.json(list))
         .catch((err) => res.status(500).send(err));
+    // Saves.index()
+    //     .then((list: GameData[]) => res.json(list))
+    //     .catch((err) => res.status(500).send(err));
 });
 
 router.get("/:name", (req: Request, res: Response) => {
@@ -22,7 +28,10 @@ router.get("/:name", (req: Request, res: Response) => {
 
 // POST
 router.post("/", (req: Request, res: Response) => {
+    const username = (req as any).username;
     const newSave = req.body as GameData;
+
+    newSave.username = username;
 
     Saves.create(newSave)
         .then((save: GameData) => res.status(201).json(save))

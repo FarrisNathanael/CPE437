@@ -25,12 +25,23 @@
         </a>
     </h1>
     <div class="navbar" style="justify-content: center">
-        <a href="index.html">
+        <div class="nav-items">
+        <a href="index.html" style="justify-content: flex-start">
             <svg class = "icon">
                 <use xlink:href ="icons/navigation.svg#icon-home"></use>
             </svg>
             <span>Home</span>
         </a>
+        </div>
+        <div class="summary-wrapper">
+            <div class="container1" id="game-summary">
+                <h2>Game Summary</h2>
+                <img id="game-cover" alt="" width="200" height="200">
+                <p id="game-name"></p>
+                <p id="game-meta"></p>
+                <p id="game-status"></p>
+            </div>
+        </div>
     </div>
     <div class="container1">
     <h2>
@@ -38,7 +49,7 @@
             <use xlink:href ="icons/gamestuff.svg#icon-board-game"></use>
         </svg>
         Board</h2>
-    <img src="https://www.prawndesigns.com/hex-board-style-1-options/Settlers3E3-4Hex.png" alt="Hex Grid" width="200" height="200">
+    <img src="public/assets/Wingspan_mat.jpg" alt="Hex Grid" width="300" height="200">
     </div>
     <div class="container1">
         <h2>
@@ -47,22 +58,33 @@
             </svg>
             Rules</h2>
             <p>
-                Players will take turns in a lock-wise direction. Each player will also be able to play three cards
-                during their turn.
+                4
+                Wingspan is played over 4 rounds. During each round, players take turns—proceeding clockwise—until each player has used all of
+                their available action cubes.
+                Turn Structure
+                On your turn, you will take 1 of 4 actions, as shown on the left
+                side of your player mat:
+                Play a bird from your hand
+                Gain food and activate forest bird powers
+                Lay eggs and activate grassland bird powers
+                Draw bird cards and activate wetland bird powers
+                To place a bird from your hand onto a habitat, place an action cube on the Play a Bird spot above where you will play the bird. Pay
+                the bird’s food and egg cost, then place the bird on your mat, only triggering that bird’s “WHEN PLAYED” power (if any).
+                The Gain Food, Lay Eggs, and Draw Bird Cards actions follow the same 3-step process (numbers noted on player mat image, below):
             </p>
-            <p>
-                When someone plays a color card on their turn, all hex squares in their vicinity will become "colored"
-                with the subsequent color played.
-            </p>
-        <span> <a href="Rulebook.pdf"> Rulebook</a></span>
+        <span> <a href="https://www.szellemlovas.hu/szabalyok/fesztavEN.pdf?srsltid=AfmBOoq1EBw36vW6fMx3smy1x1SU_wNMqYuRVmgX6zfiFYCrMkd850U3"> Rulebook</a></span>
     </div>
     <div class="container2">
         <h2>
         <svg class = "icon">
             <use xlink:href ="icons/gamestuff.svg#icon-cards"></use>
         </svg>
-        Cards</h2>
-    <img src="https://static.wikia.nocookie.net/unocardgame/images/7/74/Wild_Custom_Card_Uno.png" alt="Uno Card" width="200" height="200">
+            Cards
+        </h2>
+        <div class="card-row">
+            <img src="public/assets/Wingspan_Gcard.jpg" alt="Wingpsan card backing, green with leaves" width="125" height="200">
+            <img src="public/assets/Wingspan_card_front.png" alt="Wingspan bird card" width="125" height="200">
+        </div>
     </div>
     <div class="container2">
         <h2>
@@ -80,5 +102,43 @@
         Tokens</h2>
     <p> N/A </p>
     </div>
+    <script>
+    // Adjust this path if your JSON lives somewhere else
+    fetch("/data/Saves.json")
+    .then((res) => {
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    return res.json();
+    })
+    .then((list) => {
+    // If Wingspan is always first, you could just do: const game = list[0];
+    const game = Array.isArray(list)
+    ? list.find((g) => g.name === "Wingspan")
+    : null;
+
+    if (!game) return;
+
+    const nameEl = document.getElementById("game-name");
+    const metaEl = document.getElementById("game-meta");
+    const statusEl = document.getElementById("game-status");
+    const coverEl = document.getElementById("game-cover");
+
+    if (nameEl) nameEl.textContent = game.name;
+    if (metaEl) {
+    metaEl.textContent =
+    `${game.playersMin}-${game.playersMax} players • ${game.duration} min`;
+    }
+    if (statusEl) {
+    statusEl.textContent =
+    `${game.status} • Last played: ${game.lastEdited}`;
+    }
+    if (coverEl) {
+    coverEl.src = game.coverSrc;
+    coverEl.alt = game.name;
+    }
+    })
+    .catch((err) => {
+    console.error("Failed to load game info", err);
+    });
+    </script>
 </body>
 </html>

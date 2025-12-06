@@ -29,14 +29,12 @@
         "mu-auth": Auth.Provider
     });
 
-    HeaderElement.initializeOnce();
-
     document.body.addEventListener("dark-mode:toggle", function (event) {
         const isOn = !!(event.detail && event.detail.checked);
         event.currentTarget.classList.toggle('dark-mode', isOn);
 
     });
-    function toggleDarkMode(target, checked) {
+    window.toggleDarkMode = function toggleDarkMode(target, checked) {
         console.log("[relay] dispatching dark-mode:toggle", { checked });
         const customEvent = new CustomEvent("dark-mode:toggle", {
             bubbles: true,
@@ -44,6 +42,8 @@
         });
         target.dispatchEvent(customEvent);
     }
+
+    HeaderElement.initializeOnce();
 
 </script>
 
@@ -55,7 +55,7 @@
       <span class="site-title">Board Game Plane</span>
   </span>
     <label class="dark-mode-box"
-           onchange="event.stopPropagation(); toggleDarkMode(this, event.target.checked)"
+           onchange="event.stopPropagation(); window.toggleDarkMode(this, event.target.checked)"
     >
         <input type="checkbox" autocomplete="off"/>
         Dark mode

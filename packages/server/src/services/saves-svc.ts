@@ -11,7 +11,8 @@ const GameSchema = new Schema<GameData>(
         playerMax: { type: Number },
         duration: { type: Number },
         status: { type: String, default: "active" },
-        lastEdited: { type: Number }
+        lastEdited: { type: Number },
+        username: { type: String, required: true }
     },
     { collection: "saves" }
 );
@@ -20,6 +21,10 @@ const SavesModel = model<GameData>(
     "Saves",
     GameSchema
 );
+
+function indexByUser(username: string): Promise<GameData[]> {
+    return SavesModel.find({ username }).exec();
+}
 
 function index(): Promise<GameData[]> {
     return SavesModel.find().exec();
@@ -53,4 +58,4 @@ function remove(name: string): Promise<void> {
 }
 
 // default export matches how routes import it
-export default { index, get, create, update, remove };
+export default { indexByUser, index, get, create, update, remove };

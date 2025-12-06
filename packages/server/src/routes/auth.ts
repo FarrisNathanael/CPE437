@@ -73,14 +73,28 @@ export function authenticateUser(
     //Getting the 2nd part of the auth header (the token)
     const token = authHeader && authHeader.split(" ")[1];
 
+//     if (!token) {
+//         res.status(401).end();
+//     } else {
+//         jwt.verify(token, TOKEN_SECRET, (error, decoded) => {
+//             if (decoded) next();
+//             else res.status(401).end();
+//         });
+//     }
+//
+// }
     if (!token) {
-        res.status(401).end();
-    } else {
-        jwt.verify(token, TOKEN_SECRET, (error, decoded) => {
-            if (decoded) next();
-            else res.status(401).end();
-        });
+        return res.status(401).end();
     }
+
+    jwt.verify(token, TOKEN_SECRET, (error, decoded) => {
+        if (error || !decoded || typeof decoded !== "object") {
+            return res.status(401).end();
+        }
+        const { username } = decoded as { username: string };
+        (req as any).username = username;
+        next();
+    });
 }
 
 

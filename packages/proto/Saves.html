@@ -11,7 +11,22 @@
 
 <body>
 
+<script type="module">
+    import { define, Auth } from "@calpoly/mustang";
+    import { HeaderElement } from "/src/scripts/header.ts";
+    import { SavesElement } from "/src/saves.ts";
+    import { GameElement } from "/src/games.ts";
 
+    define({
+        "mu-auth": Auth.Provider,
+        "bgp-header": HeaderElement,
+        "bgp-saves": SavesElement,
+        "bgp-game": GameElement
+    });
+
+    HeaderElement.initializeOnce?.();
+</script>
+<mu-auth provides="bgp:auth">
     <h1>
       <span class="brand">
         <a href="index.html" class="logo">
@@ -36,9 +51,9 @@
     </div>
 <h2>Saves</h2>
 
-    <bgp-saves src="/data/Saves.json" ></bgp-saves>
+    <bgp-saves src="/api/saves" ></bgp-saves>
 
-
+<!--    data/Saves.json-->
     <!--                role="listitem"-->
     <!--                cover-src ="/assets/Catan.png"-->
     <!--                href = "Game.html"-->
@@ -76,6 +91,6 @@
             "bgp-saves": SavesElement
         });
     </script>
-
+</mu-auth>
 </body>
 </html>

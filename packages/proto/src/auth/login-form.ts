@@ -57,6 +57,63 @@ export class LoginFormElement extends LitElement {
       }
   `];
 
+  //   static styles = [
+  //       reset.styles,
+  //       headings.styles,
+  //       css`
+  //   form {
+  //     display: flex;
+  //     flex-direction: column;
+  //     gap: var(--spacing-sm);
+  //   }
+  //
+  //   label {
+  //     display: flex;
+  //     flex-direction: column;
+  //     gap: 0.25rem;
+  //   }
+  //
+  //   label span {
+  //     font-size: 0.9rem;
+  //     font-weight: 500;
+  //   }
+  //
+  //   input {
+  //     padding: 0.35rem 0.5rem;
+  //     border-radius: 6px;
+  //     border: 1px solid var(--border-color);
+  //     font: inherit;
+  //   }
+  //
+  //   button[type="submit"] {
+  //     margin-top: var(--spacing-sm);
+  //     padding: 0.4rem 0.9rem;
+  //     border-radius: 999px;
+  //     border: none;
+  //     background-color: var(--header-background-color);
+  //     color: var(--text-color);
+  //     cursor: pointer;
+  //     transition: background-color 0.2s, transform 0.1s;
+  //   }
+  //
+  //   button[type="submit"]:hover:not(:disabled) {
+  //     background-color: var(--link-bg-hover);
+  //     transform: scale(1.03);
+  //   }
+  //
+  //   button[type="submit"]:disabled {
+  //     opacity: 0.6;
+  //     cursor: not-allowed;
+  //   }
+  //
+  //   .error:not(:empty) {
+  //     color: var(--color-error);
+  //     border: 1px solid var(--color-error);
+  //     padding: var(--size-spacing-medium);
+  //   }
+  // `
+  //   ];
+
 
     handleChange(event: InputEvent) {
         const target = event.target as HTMLInputElement;

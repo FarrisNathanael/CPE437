@@ -15,6 +15,7 @@ interface GameData{
     duration: number;
     status: string;
     lastEdited: string;
+    username: string;
 }
 
 
@@ -37,6 +38,9 @@ export class SavesElement extends LitElement {
         super.connectedCallback();
         this._authObserver.observe((auth: Auth.Model) => {
             this._user= auth.user;
+            if (this.src && this._user?.authenticated) {
+                this.hydrate(this.src);
+            }
         });
     }
 

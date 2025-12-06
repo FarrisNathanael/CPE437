@@ -9,4 +9,5 @@ interface GameData{
     duration: number;
     status: string;
     lastEdited: string;
+    username: string;
 }
